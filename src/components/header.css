@@ -1,0 +1,47 @@
+
+
+.header{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ul{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    border: solid 1px turquoise;
+    border-radius: 40px;
+    padding: 8px;
+
+}
+
+.ul li{
+    list-style: none;
+    margin: 0 10px ;
+}
+
+.ul li.active a{
+    background-color: green;
+    color: white;
+}
+
+
+.ul a{
+    text-decoration: none;
+    color: turquoise;
+}   
+
+.button{
+    border: solid 1px turquoise;
+    border-radius: 10px;
+    background-color: turquoise;
+    color: white;
+    height: 40px;
+    width: 100px;
+}
