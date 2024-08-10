@@ -1,0 +1,18 @@
+.main{
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr ;
+}
+
+.test1, .test2, .test3{
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px;
+}
+
+.test1div{
+    background-color: blue;
+}
