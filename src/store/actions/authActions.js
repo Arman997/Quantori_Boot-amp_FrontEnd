@@ -1,23 +1,28 @@
 import axios from 'axios';
-import { Dispatch } from 'redux';
+import { getTokenAPI, getUserAPI } from '../apiurl/url';
 import { loginSuccess, userLoaded, loginFail } from '../reducers/authReducers';
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
-    const login_url = import.meta.env.VITE_IP + 'api/auth/login'
-    const res = await axios.post(login_url, { email, password });
+    const cred = {    
+    username: username,
+    password: password ,
+    expiresInMins: 30, 
+    }
+    const res = await axios.post(getTokenAPI, { username, password });
     const token = res.data.token;
 
-    console.log('Login successful, token:', token);
 
     dispatch(loginSuccess(token));
 
-    const login_token_url = import.meta.env.VITE_IP + 'api/auth/user'
-    const userRes = await axios.get(login_token_url, {
-      headers: { 'x-auth-token': token },
+
+    const userRes = await axios.get(getUserAPI, {
+      headers: { 
+          'Authorization': 'Bearer ' + token,
+      }
     });
 
-    console.log('User data loaded:', userRes.data);
+    
 
     dispatch(userLoaded(userRes.data));
   } catch (err) {

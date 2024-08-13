@@ -9,6 +9,10 @@ export default {
       colors:{
           'custom-color' : '#66837E',
       },
+      screens:{
+        'sm': '450px',
+        'md': '768px',
+      },
     },
   },
   plugins: [],

@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Main from './components/Body';
-import Contact from './pages/Contact';
 import About from './pages/About';
-import Login from './components/Login';
 import LoginPage from './pages/LoginPage';
 import ContactPage from './pages/Contact';
 
@@ -13,15 +10,14 @@ function App() {
   const [isopen, setIsopen] = useState(false);
 
   useEffect(() => {
-    // Your effect logic here
-    console.log(isopen);
+    
+  
   }, [isopen]);
 
   return (
     <Router>
       <div className='h-screen relative'>
         <Header setIsopen={setIsopen} />
-        {/* <Main SetIsopen={setIsopen} isOpen={isopen}> */}
           <>
           <div className="container_1">
             <div className='item1 h-full bg-[#66837E]'></div>

@@ -3,8 +3,7 @@ import Login from '../components/Login'
 
 function LoginPage({isOpen,SetIsopen}) {
     useEffect(()=>{
-        console.log("=====================");
-        console.log(isOpen);
+       
     },[isOpen])
     if(!isOpen)
         return null

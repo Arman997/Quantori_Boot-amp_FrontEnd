@@ -19,6 +19,10 @@ import Layout from './layout/Layout.jsx';
 import Login from './components/Login.jsx';
 import Main from './components/Body.jsx';
 import LoginPage from './pages/LoginPage.jsx';
+import { Provider } from 'react-redux';
+import store, { persistor } from './store/store.js';
+import { PersistGate } from 'redux-persist/integration/react';
+
 
 const router = createBrowserRouter(
   [
@@ -38,9 +42,9 @@ const router = createBrowserRouter(
         {
         path: "/contact",
         element: (
-          // <AuthWrapper>
+          
             <Contact />
-          // </AuthWrapper>
+          
         ),
       },
       {
@@ -52,16 +56,16 @@ const router = createBrowserRouter(
   ] 
 );
 
-
 createRoot(document.getElementById('root')).render(
   <>
 
-    {/* {isOpen && <Login setIsopen={SetIsopen}/> } */}
-    {/* <Outlet/> */}
-    <App/>  
     
+    <Provider store={store}>
+    <App/>
+    <PersistGate
+        persistor={persistor}
+    ></PersistGate>
+    </Provider>
 </>
-    
-    // </Layout>
 
 )
